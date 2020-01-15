@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import mybatis.plus.example.entity.User;
 import mybatis.plus.example.dao.UserMapper;
+import mybatis.plus.example.entity.UserQuestionVo;
 import mybatis.plus.example.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         wrapper.orderByAsc("gmt_create");
         IPage<User> userIPage =baseMapper.selectPage(page,wrapper);
         return userIPage;
+    }
+
+    @Override
+    public Page<UserQuestionVo> getQuestionStudent(Page<UserQuestionVo> page) {
+        return page.setRecords( baseMapper.getUserQuestion( page ) );
     }
 }

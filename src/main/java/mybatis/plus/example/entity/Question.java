@@ -1,48 +1,47 @@
 package mybatis.plus.example.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.io.Serializable;
-import java.util.List;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author qp
- * @since 2020-01-06
+ * @since 2020-01-15
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class User implements Serializable {
+public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String accountId;
+    private String title;
 
-    private String name;
-
-    private String token;
+    private String descrition;
 
     private Long gmtCreate;
 
     private Long gmtModified;
 
-    private String bio;
+    private Integer creator;
 
-    private String avatarUrl;
+    private Integer commentCount;
 
+    private Integer viewCount;
+
+    private Integer likeCount;
+
+    private String tag;
 
 
 }

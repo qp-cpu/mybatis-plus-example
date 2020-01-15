@@ -3,30 +3,15 @@ package mybatis.plus.example.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
-
-/**
- * <p>
- *
- * </p>
- *
- * @author qp
- * @since 2020-01-06
- */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-public class User implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId(value = "id", type = IdType.AUTO)
+public class UserQuestionVo implements Serializable {
+    @ApiModelProperty(value = "用户主键id")
+    @TableId(value = "id" ,type = IdType.AUTO)
     private Integer id;
 
     private String accountId;
@@ -43,6 +28,7 @@ public class User implements Serializable {
 
     private String avatarUrl;
 
-
+    @TableField("question_title")
+    private String title;
 
 }
